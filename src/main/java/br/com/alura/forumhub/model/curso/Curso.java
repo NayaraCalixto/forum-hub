@@ -1,4 +1,4 @@
-package br.com.alura.forumhub.model;
+package br.com.alura.forumhub.model.curso;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -10,26 +10,22 @@ import jakarta.persistence.Table;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-@Table(name = "usuarios")
-@Entity(name = "usuario")
+@Table(name = "curso")
+@Entity(name = "curso")
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Usuario {
+public class Curso {
     
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;	
-	private String email;
-	private String senha;
 	@Enumerated(EnumType.STRING)
-	private Perfil perfil;
+	private Categoria categria;
 
-    public Usuario(String nome, String email, String senha, Perfil perfil) {
+    public Curso(String nome, Categoria categria) {
         this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.perfil = perfil;
+        this.categria = categria;
     }
 
     public Long getId() {
@@ -40,16 +36,8 @@ public class Usuario {
         return nome;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public Perfil getPerfil() {
-        return perfil;
+    public Categoria getCategria() {
+        return categria;
     }
 
 }

@@ -1,7 +1,9 @@
-package br.com.alura.forumhub.model;
+package br.com.alura.forumhub.model.resposta;
 
 import java.time.LocalDateTime;
 
+import br.com.alura.forumhub.model.topico.Topico;
+import br.com.alura.forumhub.model.usuario.Usuario;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

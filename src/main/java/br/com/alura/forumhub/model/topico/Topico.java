@@ -1,8 +1,12 @@
-package br.com.alura.forumhub.model;
+package br.com.alura.forumhub.model.topico;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+import br.com.alura.forumhub.model.curso.Curso;
+import br.com.alura.forumhub.model.resposta.Resposta;
+import br.com.alura.forumhub.model.usuario.Status;
+import br.com.alura.forumhub.model.usuario.Usuario;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

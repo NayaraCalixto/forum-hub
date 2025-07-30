@@ -1,6 +1,6 @@
 package br.com.alura.forumhub.dto;
 
-import br.com.alura.forumhub.model.Perfil;
+import br.com.alura.forumhub.model.usuario.Perfil;
 
 public record DadosUsuario(
     Long id,

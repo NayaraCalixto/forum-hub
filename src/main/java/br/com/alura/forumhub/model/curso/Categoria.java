@@ -1,4 +1,4 @@
-package br.com.alura.forumhub.model;
+package br.com.alura.forumhub.model.curso;
 
 public enum Categoria {
     PROGRAMAÇÃO,
