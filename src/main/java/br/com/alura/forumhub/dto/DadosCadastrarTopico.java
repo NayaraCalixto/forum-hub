@@ -1,12 +1,16 @@
 package br.com.alura.forumhub.dto;
 
-import br.com.alura.forumhub.model.curso.Curso;
-import br.com.alura.forumhub.model.usuario.Usuario;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record DadosCadastrarTopico(
+    @NotBlank 
     String titulo,
+    @NotBlank 
     String mensagem,
-    Usuario autor,
-    Curso curso) {
+    @NotNull 
+    Long autorId,
+    @NotNull 
+    Long cursoId) {
 
 }
