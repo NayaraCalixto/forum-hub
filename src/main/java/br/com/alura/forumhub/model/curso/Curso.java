@@ -7,15 +7,19 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Table(name = "curso")
 @Entity(name = "curso")
+@AllArgsConstructor
 @NoArgsConstructor
+@Getter
 @EqualsAndHashCode(of = "id")
 public class Curso {
-    
+
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -23,21 +27,9 @@ public class Curso {
 	@Enumerated(EnumType.STRING)
 	private Categoria categria;
 
-    public Curso(String nome, Categoria categria) {
-        this.nome = nome;
-        this.categria = categria;
-    }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public Categoria getCategria() {
-        return categria;
+    public Curso(Long cursoId) {
+        this.id = cursoId;
     }
 
 }

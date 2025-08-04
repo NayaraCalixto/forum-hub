@@ -7,12 +7,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Table(name = "usuarios")
 @Entity(name = "usuario")
+@AllArgsConstructor
 @NoArgsConstructor
+@Getter
 @EqualsAndHashCode(of = "id")
 public class Usuario {
     
@@ -21,35 +25,13 @@ public class Usuario {
 	private Long id;
 	private String nome;	
 	private String email;
+	private String login;
 	private String senha;
 	@Enumerated(EnumType.STRING)
 	private Perfil perfil;
 
-    public Usuario(String nome, String email, String senha, Perfil perfil) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.perfil = perfil;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public Perfil getPerfil() {
-        return perfil;
+    public Usuario(Long autorId) {
+        this.id = autorId;
     }
 
 }
