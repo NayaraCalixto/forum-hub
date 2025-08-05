@@ -3,7 +3,7 @@ CREATE TYPE categoria_enum AS ENUM ('PROGRAMAÇÃO', 'JAVA', 'SPRING_BOOT',
 
 CREATE TABLE curso (
     id BIGSERIAL PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    categoria VARCHAR(20) NOT NULL
+    nome VARCHAR(200) NOT NULL,
+    categoria categoria_enum NOT NULL
 
 );

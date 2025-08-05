@@ -6,8 +6,8 @@ CREATE TABLE topico (
     mensagem VARCHAR(1000) NOT NULL UNIQUE,
     data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     status status_enum  NOT NULL,
-    id_autor VARCHAR(100) NOT NULL,
-    id_curso VARCHAR(100) NOT NULL,
+    id_autor BIGINT NOT NULL,
+    id_curso BIGINT NOT NULL,
     FOREIGN KEY (id_autor) REFERENCES usuario(id),
-    FOREIGN KEY (id_curso) REFERENCES cursos(id)
+    FOREIGN KEY (id_curso) REFERENCES curso(id)
 );

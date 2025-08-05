@@ -1,4 +1,3 @@
-
 INSERT INTO usuario (nome, email, login, senha, perfil) VALUES
 ('Alice Martins', 'alice.martins@example.com', 'alicem', 'alice123', 'ADMIN'),
 ('Bruno Silva', 'bruno.silva@example.com', 'brunos', 'bruno456', 'USER'),
@@ -9,4 +8,14 @@ INSERT INTO usuario (nome, email, login, senha, perfil) VALUES
 ('Gustavo Alves', 'gustavo.alves@example.com', 'gustavoa', 'gustavo159', 'USER'),
 ('Helena Castro', 'helena.castro@example.com', 'helenac', 'helena753', 'ADMIN'),
 ('Igor Mendes', 'igor.mendes@example.com', 'igorm', 'igor852', 'USER'),
-('Juliana Costa', 'juliana.costa@example.com', 'julianac', 'juliana951', 'USER');
+('Juliana Costa', 'juliana.costa@example.com', 'julianac', 'juliana951', 'USER'),
+('Karen Brito', 'karen.brito@example.com', 'karenb', 'karen963', 'USER'),
+('Leonardo Nunes', 'leonardo.nunes@example.com', 'leonardon', 'leo741', 'ADMIN'),
+('Marina Farias', 'marina.farias@example.com', 'marinaf', 'marina258', 'USER'),
+('Nicolas Duarte', 'nicolas.duarte@example.com', 'nicolasd', 'nicolas369', 'USER'),
+('Otávia Fernandes', 'otavia.fernandes@example.com', 'otaviaf', 'otavia147', 'USER'),
+('Paulo Moreira', 'paulo.moreira@example.com', 'paulom', 'paulo321', 'ADMIN'),
+('Rafaela Teixeira', 'rafaela.teixeira@example.com', 'rafaelatex', 'rafaela654', 'USER'),
+('Sérgio Pinto', 'sergio.pinto@example.com', 'sergiop', 'sergio753', 'USER'),
+('Talita Campos', 'talita.campos@example.com', 'talitac', 'talita852', 'ADMIN'),
+('Vinícius Lopes', 'vinicius.lopes@example.com', 'viniciusl', 'vinicius951', 'USER');

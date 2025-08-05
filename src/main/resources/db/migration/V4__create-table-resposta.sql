@@ -1,11 +1,11 @@
 CREATE TABLE resposta (
 
     id BIGSERIAL PRIMARY KEY,
-    mensagem VARCHAR(1000) NOT NULL UNIQUE,
+    mensagem VARCHAR(10000) NOT NULL UNIQUE,
     data_criacao TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    id_titulo VARCHAR(100) NOT NULL,
-    id_autor VARCHAR(100) NOT NULL,
-    solucao VARCHAR(1000) NOT NULL,
-    FOREIGN KEY (id_titulo) REFERENCES titulo(id),
-    FOREIGN KEY (id_autor) REFERENCES autor(id)
+    id_titulo BIGINT NOT NULL,
+    id_autor BIGINT NOT NULL,
+    solucao VARCHAR(10000) NOT NULL,
+    FOREIGN KEY (id_titulo) REFERENCES topico(id),
+    FOREIGN KEY (id_autor) REFERENCES usuario(id)
 );

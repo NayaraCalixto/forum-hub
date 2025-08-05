@@ -64,7 +64,7 @@ public class TopicoController {
         Topico topico = new Topico(dados, autor, curso);
         Topico topicoSalvo = topicoRepository.save(topico);
 
-        URI uri = URI.create("/topicos/" + topicoSalvo.getId());
+        URI uri = URI.create("/topicos" + topicoSalvo.getId());
         return ResponseEntity.created(uri).body(topicoSalvo);
 
     }
