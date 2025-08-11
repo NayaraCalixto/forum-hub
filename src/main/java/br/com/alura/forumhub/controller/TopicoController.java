@@ -36,54 +36,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class TopicoController {
 
     @Autowired
-    private TopicoRepository topicoRepository;
-
-    @Autowired
-    private UsuarioRepository usuarioRepository;
-
-    @Autowired
     private CursoRepository cursoRepository;
-
 
     @PostMapping
     @Transactional
     public ResponseEntity<?> cadastrarTopico(@RequestBody @Valid DadosCadastrarTopico dados) {
-
-        boolean topicoExiste = topicoRepository.existsByTituloAndMensagem(dados.titulo(), dados.mensagem());
-        if (topicoExiste) {
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-                                 .body("Tópico já existe");
-        }
-
-        Usuario autor = usuarioRepository.findById(dados.autorId())
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Autor não encontrado"));
-
-        Curso curso = cursoRepository.findById(dados.cursoId())
-            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Curso não encontrado"));
-
-        Topico topico = new Topico(dados, autor, curso);
-        Topico topicoSalvo = topicoRepository.save(topico);
-
-        URI uri = URI.create("/topicos" + topicoSalvo.getId());
-        return ResponseEntity.created(uri).body(topicoSalvo);
-
+        return topicoService.cadastrarTopico(dados);
     }
 
     @GetMapping
     public Page<DadosListagemTopico> listarTopicos(@PageableDefault(size = 10, sort = {"dataCriacao"}) Pageable paginacao) {
-	    return topicoRepository.findAll(paginacao).map(DadosListagemTopico::new);
+	    return topicoService.listarTopicos(paginacao);
     }
     
-    @GetMapping("/topicos/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<DadosTopico> buscarPorId(@PathVariable Long id) {
-    Optional<Topico> topico = topicoRepository.findById(id);
+        return topicoService.buscarPorId(id);
+    }
 
-        if (topico.isPresent()) {
-            DadosTopico dadosTopico = new DadosTopico(topico.get());
-            return ResponseEntity.ok(dadosTopico);
-        } else {
-        return ResponseEntity.notFound().build();
-        }
+    @PutMapping
+    @Transactional
+    public ResponseEntity<?> atualizarTopico(DadosAtualizarTopico dadosAtualizar) {
+        return topicoService.atualizarTopico(topico);
+    }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> deletarTopico(@PathVariable Long id) {
+        return topicoService.deletarTopico(ResponseEntity.notFound().build());
     }
 
 }
