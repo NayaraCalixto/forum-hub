@@ -25,7 +25,7 @@ public class Curso {
 	private Long id;
 	private String nome;	
 	@Enumerated(EnumType.STRING)
-	private Categoria categria;
+	private Categoria categoria;
 
 
     public Curso(Long cursoId) {

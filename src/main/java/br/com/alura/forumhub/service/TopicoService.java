@@ -1,19 +1,27 @@
-package br.com.alura.forumhub.repository.topico;
+package br.com.alura.forumhub.service;
 
+import java.net.URI;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import br.com.alura.forumhub.dto.DadosAtualizarTopico;
+import br.com.alura.forumhub.dto.DadosCadastrarTopico;
+import br.com.alura.forumhub.dto.DadosListagemTopico;
+import br.com.alura.forumhub.dto.DadosTopico;
 import br.com.alura.forumhub.model.curso.Curso;
 import br.com.alura.forumhub.model.topico.Topico;
 import br.com.alura.forumhub.model.usuario.Usuario;
 import br.com.alura.forumhub.repository.curso.CursoRepository;
+import br.com.alura.forumhub.repository.topico.TopicoRepository;
 import br.com.alura.forumhub.repository.usuario.UsuarioRepository;
-import jakarta.persistence.EntityNotFoundException;
 
 @Service
 public class TopicoService {
@@ -29,7 +37,6 @@ public class TopicoService {
 
     @Transactional
     public ResponseEntity<?> cadastrarTopico(DadosCadastrarTopico dadosCadastrar) {
-        validarCamposObrigatorios(dados);
 
         boolean topicoExiste = topicoRepository.existsByTituloAndMensagem(dadosCadastrar.titulo(), dadosCadastrar.mensagem());
         if (topicoExiste) {
@@ -61,7 +68,6 @@ public class TopicoService {
 
     @Transactional
     public ResponseEntity<?> atualizarTopico(DadosAtualizarTopico dadosAtualizar) {
-    validarCamposObrigatorios(dados);
 
     Topico topico = topicoRepository.findById(dadosAtualizar.id())
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tópico não encontrado"));
@@ -82,26 +88,15 @@ public class TopicoService {
     }
 
     @Transactional
-    public ResponseEntity<Void> deletarTopico(@PathVariable Long id) {
+    public ResponseEntity<Void> deletarTopico(Long id) {
 	Optional<Topico> excluirTopico = topicoRepository.findById(id);
 
-	    if(excuirTopico.isPresent()) {
+	    if(excluirTopico.isPresent()) {
 		    topicoRepository.deleteById(id);
 		    return ResponseEntity.noContent().build();
 	    }
 	return ResponseEntity.notFound().build();
     }
 
-    private void validarCamposObrigatorios(DadosCadastrarTopico dados) {
-        if (dados.titulo() == null || dados.titulo().isBlank() ||
-            dados.mensagem() == null || dados.mensagem().isBlank() ||
-            dados.autorId() == null || dados.cursoId() == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Todos os campos são obrigatórios");
-        }
-    }
-
-    private void validarEntidadeExistente(Usuario usuario, Curso curso) {
-        
-    }
 }
 

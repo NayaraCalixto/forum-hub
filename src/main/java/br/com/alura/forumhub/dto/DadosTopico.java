@@ -26,4 +26,4 @@ public record DadosTopico(
         topico.getCurso().getNome());
     }
     
-    }
+}

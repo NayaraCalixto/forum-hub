@@ -1,0 +1,5 @@
+ALTER TABLE topico
+ALTER COLUMN status TYPE VARCHAR(20)
+USING status::VARCHAR;
+
+DROP TYPE status_enum;
