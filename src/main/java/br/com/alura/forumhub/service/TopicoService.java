@@ -24,7 +24,7 @@ import br.com.alura.forumhub.repository.topico.TopicoRepository;
 import br.com.alura.forumhub.repository.usuario.UsuarioRepository;
 
 @Service
-public class TopicoService {
+public class TopicoService<usuarioRepository> {
     
     @Autowired
     private TopicoRepository topicoRepository;
@@ -72,15 +72,15 @@ public class TopicoService {
     Topico topico = topicoRepository.findById(dadosAtualizar.id())
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Tópico não encontrado"));
 
-    Usuario autor = usuarioRepository.findById(dadosAtualizar.autorId())
-        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Autor não encontrado"));
+    // Usuario autor = usuarioRepository.findById(dadosAtualizar.autorId())
+    //     .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Autor não encontrado"));
 
     Curso curso = cursoRepository.findById(dadosAtualizar.cursoId())
         .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Curso não encontrado"));
 
     topico.setTitulo(dadosAtualizar.titulo());
     topico.setMensagem(dadosAtualizar.mensagem());
-    topico.setAutor(autor);
+    // topico.setAutor(autor);
     topico.setCurso(curso);
 
     topicoRepository.save(topico);

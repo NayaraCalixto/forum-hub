@@ -9,7 +9,6 @@ public record DadosAtualizarTopico(
     String titulo,
     String mensagem,
     Status status,
-    Long autorId,
     Long cursoId) {
 
 }
