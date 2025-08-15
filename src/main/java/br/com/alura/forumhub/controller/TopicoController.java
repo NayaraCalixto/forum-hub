@@ -55,7 +55,7 @@ public class TopicoController {
 
     @DeleteMapping("/{id}")
     @Transactional
-    public ResponseEntity<Void> deletarTopico(@PathVariable Long id) {
+    public ResponseEntity<?> deletarTopico(@PathVariable Long id) {
         return topicoService.deletarTopico(id);
     }
 
