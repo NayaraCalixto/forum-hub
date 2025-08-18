@@ -1,8 +1,10 @@
 # 🧠 FórumHub - API REST com Spring Boot
 
-<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white">
-<img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">
-<img src="https://img.shields.io/badge/Alura-13294B?style=for-the-badge&logo=data:image/svg+xml;base64,...">
+<div>
+      <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white">
+      <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white">
+      <img src="https://img.shields.io/badge/Alura-13294B?style=for-the-badge&logo=data:image/svg+xml;base64,...">
+</div>
 
 FórumHub é uma API REST desenvolvida com Spring Boot que simula o backend de um fórum de discussão. 
 O projeto cobre desde o cadastro e gerenciamento de tópicos até autenticação segura com JWT, seguindo boas práticas de desenvolvimento e arquitetura.
@@ -181,8 +183,6 @@ Para atualizar um tópico existente:
 - A API validará o ID e aplicará as regras de negócio do cadastro.
 - Se o ID for válido, o tópico será atualizado com sucesso (`200 OK`).
 
-![](assets/banco_antes_atualizar.png)
-
 ![](assets/json_atualizar.png)
 
 ---
@@ -196,8 +196,6 @@ Para excluir um tópico:
 - Se o ID for válido, o tópico será removido (`204 No Content`).
 
 ![](assets/delete_erro_204.png)
-
-![](assets/delete_erro_204_sem_id_10.png)
 
 ---
 
@@ -214,7 +212,7 @@ Para excluir um tópico:
 ## 🚀 Como Executar o Projeto
 
 ### 1. Clone o repositório
-```bash
+
 git clone https://github.com/NayaraCalixto/forum-hub
 
 
